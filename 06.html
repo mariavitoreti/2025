@@ -20,11 +20,51 @@
     */
 
     //ENTRADA
-
+    let votosJoaozinho = 0;
+    let votosMariazinha = 0;
+    let votosNulos = 0;
+    let votosBrancos = 0;
+    let votosTotais = 0;
 
     //PROCESSAMENTO
+    while (true) {
+        let voto = parseInt(prompt(`As opções são:
+    1. Candidato Joãozinho
+    2. Candidato Mariazinha
+    3. Nulo
+    4. Branco
+    Entre com o seu voto:`));
+        if (voto === 1) {
+            votosJoaozinho++;
+        } else if (voto === 2) {
+            votosMariazinha++;
+        } else if (voto === 3) {
+            votosNulos++;
+        } else if (voto === 4) {
+            votosBrancos++;
+        } else if (voto === 0) {
+            break;
+        } else {
+            alert(`Valor inválido!`);
+            continue;
+        }
+        votosTotais++;
+    } 
+    let porcentagemBrancos = (votosBrancos / votosTotais) * 100;
+    let porcentagemNulos = (votosNulos / votosTotais) * 100;
 
-
+    let vencedor = "";
+    if (votosJoaozinho > votosMariazinha) {
+        vencedor = "Joãozinho";
+    } else if (votosMariazinha > votosJoaozinho) {
+        vencedor = "Mariazinha";
+    } else {
+        vencedor = "Houve empate";
+    }
+    
     //SAÍDA
+    document.write(`Resultados da eleição: <br> Votos Joãozinho: ${votosJoaozinho}. <br> Votos Mariazinha: ${votosMariazinha}. <br> Porcentagem de votos nulos: ${porcentagemNulos.toFixed(2)}%. <br> Porcentagam de votos brancos: ${porcentagemBrancos.toFixed(2)}%. <br> Candidato vencedor: ${vencedor}.`);
 
+   
+    
 </script>
